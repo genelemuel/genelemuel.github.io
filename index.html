@@ -55,6 +55,37 @@ p {
 img {
 	pointer-events: none;
 }
+.slideDiv {
+  position: relative;
+  left: 500px;
+  -webkit-animation: slideIn 2s forwards;
+  -moz-animation: slideIn 2s forwards;
+  animation: slideIn 2s forwards;
+}
+@-webkit-keyframes slideIn {
+  0% {
+    transform: translateX(-1200px);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
+}
+@-moz-keyframes slideIn {
+  0% {
+    transform: translateX(-1200px);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(-1200px);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
+}
 </style>
 <script type="text/javascript">
             var picPaths = ['IMG_7915.png','ESO201.jpg'];
@@ -78,10 +109,13 @@ img {
 </head>
 <body>
 <div class="myDiv" style="left: 2vw">
+<div class="slideDiv">
 <h1><a href="https://www.genelemuel.com/">GENE LEMUEL</a></h1>
 <h2>I SHOOT FILM</h2>
 <h2>I SHOOT <p style="color:darkred; display:inline;">STRONG </p>WOMEN</h2>
-</div><a href="mailto:anshumalal@genelemuel.com" style="color: black"><div class="stickerDiv"><p>CONTACT</p><p>AGENT</p></div></a>
+</div></div>
+<a href="mailto:anshumalal@genelemuel.com" style="color: black">
+<div class="stickerDiv"><p>CONTACT</p><p>AGENT</p></div></a>
 <div>
 <img id="imgBanner" src="" alt="" style="width: 100%; position: absolute; z-index: -1;">
 </div>
