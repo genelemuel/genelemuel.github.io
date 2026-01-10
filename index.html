@@ -22,16 +22,18 @@
       color: #fff;
     }
 
+    /* Layout */
     .page {
       min-height: 100vh;
       display: flex;
       align-items: flex-start;
-      justify-content: flex-end;
-      padding: 40px 40px 40px 260px; /* left padding makes room for fixed text */
+      justify-content: center;
+      padding: 40px 40px 40px 200px; /* left padding makes room for fixed text */
       gap: 40px;
       background-color: #000;
     }
 
+    /* Fixed name + contact */
     .block {
       line-height: 1.4;
       flex: 0 0 auto;
@@ -41,13 +43,13 @@
     }
 
     .name {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 700;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .agent-link {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .agent-link a {
@@ -61,25 +63,27 @@
       font-family: serif;
     }
 
+    /* Right-hand image column */
     .gallery {
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      gap: 16px;
-      max-width: 50vw;
+      align-items: flex-start;
+      gap: 32px;
+      max-width: 45vw;
       background-color: #000;
     }
 
     .gallery img {
       width: 100%;
       height: auto;
-      max-height: 100vh;
+      max-height: calc(100vh - 80px); /* full photo always visible in viewport */
       object-fit: contain;
       display: block;
       background-color: #000;
     }
 
+    /* Mobile */
     @media (max-width: 768px) {
       .page {
         flex-direction: column;
@@ -99,16 +103,7 @@
 
       .gallery img {
         width: 100%;
-      }
-    }
-
-      .gallery {
-        max-width: 100%;
-        align-items: flex-start;
-      }
-
-      .gallery img {
-        width: 100%;
+        max-height: none; /* let images size naturally on mobile */
       }
     }
   </style>
@@ -117,7 +112,7 @@
   <div class="page">
     <div class="block">
       <div class="name">GENE LEMUEL</div>
-      <div class="agent-link" style="font-size:18px;"><a href="mailto:genelemuel@gmail.com">Contact Agent</a></div>
+      <div class="agent-link"><a href="mailto:genelemuel@gmail.com">Contact Agent</a></div>
     </div>
     <div class="gallery">
       <img src="https://raw.githubusercontent.com/genelemuel/genelemuel.github.io/refs/heads/main/work/IMG_9530.png" alt="Gene Lemuel work 1" />
