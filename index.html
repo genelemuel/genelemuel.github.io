@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gene Lemuel</title>
   <style>
     * {
@@ -27,13 +28,13 @@
       min-height: 100vh;
       display: flex;
       align-items: flex-start;
-      justify-content: center;
+      justify-content: center; /* center the gallery area horizontally */
       padding: 40px 40px 40px 200px; /* left padding makes room for fixed text */
       gap: 40px;
       background-color: #000;
     }
 
-    /* Fixed name + contact */
+    /* Fixed name + contact on desktop */
     .block {
       line-height: 1.4;
       flex: 0 0 auto;
@@ -92,8 +93,10 @@
       }
 
       .block {
-        position: static;
+        position: static; /* no longer fixed */
         margin-bottom: 24px;
+        width: auto;
+        text-align: left; /* keep left-aligned like desktop */
       }
 
       .gallery {
