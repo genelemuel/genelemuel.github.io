@@ -4,159 +4,161 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gene Lemuel</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
 
-    <style>
-      * {
-        box-sizing: border-box;
-      }
+  :root {
+    --bg: #000;
+    --fg: #f5f5f5;
+    --accent: #c30000;
+    --soft-border: rgba(255, 255, 255, 0.08);
+  }
 
-      :root {
-        --bg: #000;
-        --fg: #f5f5f5;
-        --accent: #c30000;
-        --soft-border: rgba(255, 255, 255, 0.08);
-      }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      Arial, sans-serif;
+  }
 
-      html,
-      body {
-        /* body inherits font from html/body; keep serif only for .agent-link */
-        color: var(--fg);
-      } var(--fg);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      }
+  body {
+    /* body inherits sans-serif; serif is only for .agent-link */
+  }
 
-      body {
-        font-family: "Times New Roman", Times, serif;
-        color: var(--fg);
-      }
+  /* Layout
+     -------------------------------------------------- */
+  .page {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 48px 7vw 56px 12vw;
+    gap: 72px;
+    background-color: var(--bg);
+  }
 
-      /* Layout
-         -------------------------------------------------- */
-      .page {
-        min-height: 100vh;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 48px 7vw 56px 12vw;
-        gap: 72px;
-        background-color: var(--bg);
-      }
+  /* Name + contact block with slight off-centeredness */
+  .block {
+    position: fixed;
+    top: 18vh;
+    left: 7vw;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    text-transform: uppercase; /* only affects name */
+  }
 
-      /* Name + contact block with slight off-centeredness */
-      .block {
-        position: fixed;
-        top: 18vh;
-        left: 7vw;
-        line-height: 1.4;
-        letter-spacing: 0.02em;
-        text-transform: uppercase; /* only affects name */
-      }
+  .name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
 
-      .name {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 16px;
-      }
+  .agent-link {
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    font-family: "Times New Roman", Times, serif;
+    text-transform: none;
+  }
 
-      .agent-link {
-        font-size: 16px;
-        letter-spacing: 0.01em;
-        font-family: "Times New Roman", Times, serif;
-        text-transform: none;
-      }
+  .agent-link a {
+    color: var(--accent);
+    text-decoration: underline;
+    border-bottom: 1px solid var(--soft-border);
+    padding-bottom: 2px;
+  }
 
-      .agent-link a {
-        color: var(--accent);
-        text-decoration: underline;
-        border-bottom: 1px solid var(--soft-border);
-        padding-bottom: 2px;
-      }
+  /* Right-hand image column, nudged slightly right */
+  .gallery-wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+  }
 
-      /* Right-hand image column, nudged slightly right */
-      .gallery-wrapper {
-        flex: 1 1 auto;
-        display: flex;
-        justify-content: flex-end;
-      }
+  .gallery {
+    width: min(46vw, 640px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    margin-right: 6vw; /* delicate push to the right */
+  }
 
-      .gallery {
-        width: min(46vw, 640px);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-        margin-right: 6vw; /* delicate push to the right */
-      }
+  .gallery img {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 96px);
+    object-fit: contain;
+    display: block;
+    background-color: var(--bg);
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
 
-      .gallery img {
-        width: 100%;
-        height: auto;
-        max-height: calc(100vh - 96px);
-        object-fit: contain;
-        display: block;
-        background-color: var(--bg);
-        border-radius: 2px;
-        border: 1px solid rgba(255, 255, 255, 0.04);
-      }
+  /* A hint of rhythm: every third image a bit narrower */
+  .gallery img:nth-of-type(3n) {
+    width: 92%;
+    margin-left: 4%;
+  }
 
-      /* A hint of rhythm: every third image a bit narrower */
-      .gallery img:nth-of-type(3n) {
-        width: 92%;
-        margin-left: 4%;
-      }
+  /* and one slightly shifted the other way */
+  .gallery img:nth-of-type(2n) {
+    width: 96%;
+    margin-left: 2%;
+  }
 
-      /* and one slightly shifted the other way */
-      .gallery img:nth-of-type(2n) {
-        width: 96%;
-        margin-left: 2%;
-      }
+  /* Mobile
+     -------------------------------------------------- */
+  @media (max-width: 768px) {
+    .page {
+      flex-direction: column;
+      padding: 24px 20px 32px;
+      gap: 28px;
+    }
 
-      /* Mobile
-         -------------------------------------------------- */
-      @media (max-width: 768px) {
-        .page {
-          flex-direction: column;
-          padding: 24px 20px 32px;
-          gap: 28px;
-        }
+    .block {
+      position: static;
+      margin-top: 8vh; /* soft vertical offset */
+      margin-bottom: 16px;
+    }
 
-        .block {
-          position: static;
-          margin-top: 8vh; /* soft vertical offset */
-          margin-bottom: 16px;
-        }
+    .name {
+      font-size: 18px;
+    }
 
-        .name {
-          font-size: 18px;
-        }
+    .agent-link {
+      font-size: 12px;
+    }
 
-        .agent-link {
-          font-size: 12px;
-        }
+    .gallery-wrapper {
+      justify-content: flex-start;
+    }
 
-        .gallery-wrapper {
-          justify-content: flex-start;
-        }
+    .gallery {
+      width: 100%;
+      margin-right: 0;
+    }
 
-        .gallery {
-          width: 100%;
-          margin-right: 0;
-        }
+    .gallery img {
+      width: 100%;
+      max-height: none;
+      border-radius: 0;
+      border: none;
+    }
 
-        .gallery img {
-          width: 100%;
-          max-height: none;
-          border-radius: 0;
-          border: none;
-        }
-
-        .gallery img:nth-of-type(2n),
-        .gallery img:nth-of-type(3n) {
-          width: 100%;
-          margin-left: 0;
-        }
-      }
-    </style>
+    .gallery img:nth-of-type(2n),
+    .gallery img:nth-of-type(3n) {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+</style>
   </head>
 
   <body>
