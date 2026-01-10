@@ -1,129 +1,200 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gene Lemuel</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gene Lemuel</title>
 
-    html, body {
-      width: 100%;
-      min-height: 100%;
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-    }
-
-    body {
-      background-color: #000;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      color: #fff;
-    }
-
-    /* Layout */
-    .page {
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center; /* center the gallery area horizontally */
-      padding: 40px 40px 40px 200px; /* left padding makes room for fixed text */
-      gap: 40px;
-      background-color: #000;
-    }
-
-    /* Fixed name + contact on desktop */
-    .block {
-      line-height: 1.4;
-      flex: 0 0 auto;
-      position: fixed;
-      top: 40px;
-      left: 40px;
-    }
-
-    .name {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .agent-link {
-      font-size: 16px;
-    }
-
-    .agent-link a {
-      color: #c30000;
-      text-decoration: underline;
-      font-family: serif;
-    }
-
-    .agent-link a:visited {
-      color: #c30000;
-      font-family: serif;
-    }
-
-    /* Right-hand image column */
-    .gallery {
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 32px;
-      max-width: 45vw;
-      background-color: #000;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      max-height: calc(100vh - 80px); /* full photo always visible in viewport */
-      object-fit: contain;
-      display: block;
-      background-color: #000;
-    }
-
-    /* Mobile */
-    @media (max-width: 768px) {
-      .page {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 24px;
+    <style>
+      * {
+        box-sizing: border-box;
       }
 
+      :root {
+        --bg: #000;
+        --fg: #f5f5f5;
+        --accent: #c30000;
+        --soft-border: rgba(255, 255, 255, 0.08);
+      }
+
+      html,
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        color: var(--fg);
+      }
+
+      body {
+        font-family: "Times New Roman", Times, serif;
+        color: var(--fg);
+      }
+
+      /* Layout
+         -------------------------------------------------- */
+      .page {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 48px 7vw 56px 12vw;
+        gap: 72px;
+        background-color: var(--bg);
+      }
+
+      /* Name + contact block with slight off-centeredness */
       .block {
-        position: static; /* no longer fixed */
-        margin-bottom: 24px;
-        width: auto;
-        text-align: left; /* keep left-aligned like desktop */
+        position: fixed;
+        top: 18vh;
+        left: 7vw;
+        line-height: 1.4;
+        letter-spacing: 0.02em;
+        text-transform: uppercase; /* only affects name */
+      }
+
+      .name {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+
+      .agent-link {
+        font-size: 16px;
+        letter-spacing: 0.01em;
+        font-family: "Times New Roman", Times, serif;
+        text-transform: none;
+      }
+
+      .agent-link a {
+        color: var(--accent);
+        text-decoration: underline;
+        border-bottom: 1px solid var(--soft-border);
+        padding-bottom: 2px;
+      }
+
+      /* Right-hand image column, nudged slightly right */
+      .gallery-wrapper {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end;
       }
 
       .gallery {
-        max-width: 100%;
+        width: min(46vw, 640px);
+        display: flex;
+        flex-direction: column;
         align-items: flex-start;
+        gap: 40px;
+        margin-right: 6vw; /* delicate push to the right */
       }
 
       .gallery img {
         width: 100%;
-        max-height: none; /* let images size naturally on mobile */
+        height: auto;
+        max-height: calc(100vh - 96px);
+        object-fit: contain;
+        display: block;
+        background-color: var(--bg);
+        border-radius: 2px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <div class="block">
-      <div class="name">GENE LEMUEL</div>
-      <div class="agent-link"><a href="mailto:genelemuel@gmail.com">Contact Agent</a></div>
-    </div>
-    <div class="gallery">
-      <img src="https://raw.githubusercontent.com/genelemuel/genelemuel.github.io/refs/heads/main/work/IMG_9530.png" alt="Gene Lemuel work 1" />
-      <img src="https://genelemuel.com/4493083e-338d-4241-8868-e3cc24970d6a.png" alt="Gene Lemuel work 2" />
-      <img src="https://genelemuel.com/IMG_7915.png" alt="Gene Lemuel work 3" />
-      <img src="https://genelemuel.com/ceb7b626-c0a2-4975-b97b-4e6480d8d41d.png" alt="Gene Lemuel work 4" />
-      <img src="https://genelemuel.com/ESO201.jpg" alt="Gene Lemuel work 5" />
-    </div>
-  </div>
-</body>
+
+      /* A hint of rhythm: every third image a bit narrower */
+      .gallery img:nth-of-type(3n) {
+        width: 92%;
+        margin-left: 4%;
+      }
+
+      /* and one slightly shifted the other way */
+      .gallery img:nth-of-type(2n) {
+        width: 96%;
+        margin-left: 2%;
+      }
+
+      /* Mobile
+         -------------------------------------------------- */
+      @media (max-width: 768px) {
+        .page {
+          flex-direction: column;
+          padding: 24px 20px 32px;
+          gap: 28px;
+        }
+
+        .block {
+          position: static;
+          margin-top: 8vh; /* soft vertical offset */
+          margin-bottom: 16px;
+        }
+
+        .name {
+          font-size: 18px;
+        }
+
+        .agent-link {
+          font-size: 12px;
+        }
+
+        .gallery-wrapper {
+          justify-content: flex-start;
+        }
+
+        .gallery {
+          width: 100%;
+          margin-right: 0;
+        }
+
+        .gallery img {
+          width: 100%;
+          max-height: none;
+          border-radius: 0;
+          border: none;
+        }
+
+        .gallery img:nth-of-type(2n),
+        .gallery img:nth-of-type(3n) {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <header class="block" aria-label="Gene Lemuel contact">
+        <div class="name">GENE LEMUEL</div>
+        <div class="agent-link">
+          <a href="mailto:genelemuel@gmail.com">Contact Agent</a>
+        </div>
+      </header>
+
+      <section class="gallery-wrapper" aria-label="Selected works">
+        <div class="gallery">
+          <img
+            src="https://raw.githubusercontent.com/genelemuel/genelemuel.github.io/refs/heads/main/work/IMG_9530.png"
+            alt="Gene Lemuel work 1"
+            loading="lazy"
+          />
+          <img
+            src="https://genelemuel.com/4493083e-338d-4241-8868-e3cc24970d6a.png"
+            alt="Gene Lemuel work 2"
+            loading="lazy"
+          />
+          <img
+            src="https://genelemuel.com/IMG_7915.png"
+            alt="Gene Lemuel work 3"
+            loading="lazy"
+          />
+          <img
+            src="https://genelemuel.com/ceb7b626-c0a2-4975-b97b-4e6480d8d41d.png"
+            alt="Gene Lemuel work 4"
+            loading="lazy"
+          />
+          <img
+            src="https://genelemuel.com/ESO201.jpg"
+            alt="Gene Lemuel work 5"
+            loading="lazy"
+          />
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
